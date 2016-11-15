@@ -4,8 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-var service = build('books', 'v1', developerKey="AIzaSyAOmhWYOlexG0QKLtsr3F0VCaHTOPHyCZk")
+// var service = build('books', 'v1', developerKey="AIzaSyAOmhWYOlexG0QKLtsr3F0VCaHTOPHyCZk")
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -26,6 +27,45 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+
+
+
+// Connect to MongoDB and create/use database called todoAppTest
+mongoose.connect('mongodb://localhost/bookstoreAppTest');
+// Create a schema
+var BookstoreSchema = new mongoose.Schema({
+  name: String,
+  title: String,
+  author: String,
+  description: String
+  updated_at: { type: Date, default: Date.now },
+});
+// Create a model based on the schema
+var Bookstore = mongoose.model('Bookstore', BookstoreSchema);
+
+// Create a todo in memory
+var book = new Book({name: 'Master NodeJS', title: 'something', author: 'Getting there...', description: 'blah blah blah'});
+// Save it to database
+book.save(function(err){
+  if(err)
+    console.log(err);
+  else
+    console.log(todo);
+});
+
+book.create({name: 'Create something with Mongoose', title: 'true', author: 'this is one'}, description: 'blah blah blah' function(err, book){
+  if(err) console.log(err);
+  else console.log(todo);
+});
+
+
+
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

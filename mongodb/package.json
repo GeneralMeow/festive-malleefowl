@@ -13,5 +13,24 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "description": "Simple bookstore app using MEAN stack",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeneralMeow/festive-malleefowl.git"
+  },
+  "keywords": [
+    "mongodb",
+    "express",
+    "nodejs",
+    "bookstore"
+  ],
+  "author": "RC Brown, Abraham Ferguson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GeneralMeow/festive-malleefowl/issues"
+  },
+  "homepage": "https://github.com/GeneralMeow/festive-malleefowl#readme"
 }
