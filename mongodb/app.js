@@ -32,7 +32,7 @@ app.use('/users', users)
 mongoose.connect(
   process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URI ||
-  'mongodb://localhost/')
+  'mongodb://localhost:27017/')
 // Create a schema
 var BookstoreSchema = new mongoose.Schema({
   name: String,

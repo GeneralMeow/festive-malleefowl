@@ -32,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/GeneralMeow/festive-malleefowl/issues"
   },
-  "homepage": "https://github.com/GeneralMeow/festive-malleefowl#readme"
+  "homepage": "https://github.com/GeneralMeow/festive-malleefowl#readme",
+  "engines": {
+    "node": "6.3.1"
+  }
 }
