@@ -2,4 +2,5 @@ extends layout
 
 block content
   h1= title
-  JSON.stringify( books, null, 4 ).pretty()
+  img(src=books.image_url)
+  JSON.stringify( books, null, 4 )

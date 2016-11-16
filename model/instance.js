@@ -12,19 +12,7 @@ const BookstoreSchema = new mongoose.Schema({
 // Create a model based on the schema
 const Bookstore = mongoose.model( 'Bookstore', BookstoreSchema )
 //
-const book = new Bookstore({
-  title: 'Dreams of My Father',
-  subTitle: 'A Presidential Story',
-  authors: ['Obama'],
-  description: 'Hello',
-  image_url: 'http://google.com',
-  genre: 'Autobiography'
-})
-
-book.save(function(err){
-  if(err) console.log( err )
-  else console.log( book )
-})
+const book = new Bookstore
 
 module.exports = { Bookstore }
 
