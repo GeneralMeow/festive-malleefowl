@@ -30,10 +30,10 @@ app.use('/users', users)
 mongoose.Promise = global.Promise;
 
 // Connect to MongoDB and create/use database called todoAppTest
-mongoose.createConnection(
-  process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URI ||
-  'mongodb://localhost:27017/mallee_books')
+mongoose.createConnection('mongodb://festive:12345@ds155727.mlab.com:55727/mallee_books')
+  // process.env.MONGOLAB_URI ||
+  // process.env.MONGOHQ_URI ||
+  // 'mongodb://localhost:27017/mallee_books')
 // Create a schema
 
 // catch 404 and forward to error handler
