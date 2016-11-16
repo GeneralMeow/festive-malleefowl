@@ -1,22 +1,22 @@
-var express = require('express')
-var path = require('path')
-var favicon = require('serve-favicon')
-var logger = require('morgan')
-var cookieParser = require('cookie-parser')
-var bodyParser = require('body-parser')
-var mongoose = require('mongoose')
+let express = require('express')
+let path = require('path')
+let favicon = require('serve-favicon')
+let logger = require('morgan')
+let cookieParser = require('cookie-parser')
+let bodyParser = require('body-parser')
+let mongoose = require('mongoose')
 
-// var service = build('books', 'v1', developerKey="AIzaSyAOmhWYOlexG0QKLtsr3F0VCaHTOPHyCZk")
-var index = require('./routes/index')
-var users = require('./routes/users')
+// let service = build('books', 'v1', developerKey="AIzaSyAOmhWYOlexG0QKLtsr3F0VCaHTOPHyCZk")
+let index = require('./routes/index')
+let users = require('./routes/users')
 
-var app = express()
+let app = express()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'jade')
+app.set('view engine', 'pug')
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -29,47 +29,15 @@ app.use('/users', users)
 
 
 // Connect to MongoDB and create/use database called todoAppTest
-mongoose.connect(
+mongoose.createConnection(
   process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URI ||
-  'mongodb://localhost:27017/')
+  'mongodb://localhost:27017/mallee_books')
 // Create a schema
-var BookstoreSchema = new mongoose.Schema({
-  name: String,
-  title: String,
-  author: String,
-  description: String
-  updated_at: { type: Date, default: Date.now },
-});
-// Create a model based on the schema
-var Bookstore = mongoose.model( 'Bookstore', BookstoreSchema )
-
-// Create a todo in memory
-var book = new Book({ name: 'Master NodeJS', title: 'something', author: 'Getting there...', description: 'blah blah blah' })
-// Save it to database
-book.save(function(err){
-  if(err)
-    console.log( err )
-  else
-    console.log( todo )
-});
-
-book.create({
-  name: 'Create something with Mongoose',
-  title: 'true',
-  author: 'this is one'},
-  description: 'blah blah blah'
-  function(err, book){
-    if(err) console.log(err)
-    else console.log(todo)
-})
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found')
+  let err = new Error('Not Found')
   err.status = 404
   next(err)
 })
@@ -77,12 +45,12 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
+  res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
 
   // render the error page
   res.status( err.status || 500 )
   res.render( 'error' )
-});
+})
 
 module.exports = app

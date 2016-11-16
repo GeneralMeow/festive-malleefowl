@@ -31,5 +31,7 @@ const getAllBooks = () => { return book.find() }
 module.exports = {
   dataMatchingSchema,
   getAllBooks,
-  displayBooks
+  displayBooks,
+  dataMatchingSchema,
+  libraryPromise
 }
