@@ -4,6 +4,7 @@ const { book_data } = require('../data')
 const { Bookstore } = require('./instance')
 
 mongoose.connect(
+  process.env.MONGODB_URI ||
   process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URI ||
   'mongodb://localhost:27017/mallee_books')
