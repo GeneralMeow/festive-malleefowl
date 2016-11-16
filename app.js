@@ -27,6 +27,7 @@ app.use('/', index)
 app.use('/users', users)
 
 
+mongoose.Promise = global.Promise;
 
 // Connect to MongoDB and create/use database called todoAppTest
 mongoose.createConnection(
