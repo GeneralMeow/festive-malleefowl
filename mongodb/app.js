@@ -7,12 +7,10 @@ var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 
 // var service = build('books', 'v1', developerKey="AIzaSyAOmhWYOlexG0QKLtsr3F0VCaHTOPHyCZk")
-
 var index = require('./routes/index')
 var users = require('./routes/users')
 
 var app = express()
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
@@ -27,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
 app.use('/users', users)
+
 
 // Connect to MongoDB and create/use database called todoAppTest
 mongoose.connect(
@@ -63,6 +62,8 @@ book.create({
     if(err) console.log(err)
     else console.log(todo)
 })
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
