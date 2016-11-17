@@ -5,6 +5,7 @@ let logger = require('morgan')
 let cookieParser = require('cookie-parser')
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
+let books = require('google-books-search')
 
 // let service = build('books', 'v1', developerKey="AIzaSyAOmhWYOlexG0QKLtsr3F0VCaHTOPHyCZk")
 let index = require('./routes/index')
@@ -30,12 +31,12 @@ app.use('/users', users)
 mongoose.Promise = global.Promise;
 
 // Connect to MongoDB and create/use database called todoAppTest
-mongoose.createConnection('mongodb://festive:12345@ds155727.mlab.com:55727/mallee_books')
-  // process.env.MONGOLAB_URI ||
-  // process.env.MONGOHQ_URI ||
-  // 'mongodb://localhost:27017/mallee_books')
+mongoose.createConnection(
+  'mongodb://festive:12345@ds155727.mlab.com:55727/mallee_books' ||
+   process.env.MONGOLAB_URI ||
+   process.env.MONGOHQ_URI ||
+  'mongodb://localhost:27017/mallee_books')
 // Create a schema
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   let err = new Error('Not Found')

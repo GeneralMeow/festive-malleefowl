@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
-const DATABASE_URL =   'mongodb://festive:12345@ds155727.mlab.com:55727/mallee_books'//'mongodb://localhost:27017/mallee_books'
+const DATABASE_URL =   'mongodb://festive:12345@ds155727.mlab.com:55727/mallee_books' || 'mongodb://localhost:27017/mallee_books'
 const { book_data } = require('../data')
 const { Bookstore } = require('./instance')
 
-mongoose.connect('mongodb://festive:12345@ds155727.mlab.com:55727/mallee_books')
+mongoose.connect( DATABASE_URL)
+  //'mongodb://festive:12345@ds155727.mlab.com:55727/mallee_books')
   // process.env.MONGODB_URI ||
   // process.env.MONGOLAB_URI ||
   // process.env.MONGOHQ_URI ||
-  // 'mongodb://localhost:27017/mallee_books')
+   //'mongodb://localhost:27017/mallee_books')
 
 const dataMatchingSchema = book_data.map( bookData => {
   return {
