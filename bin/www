@@ -8,9 +8,9 @@ let app = require('../app')
 let debug = require('debug')('mongodb:server')
 let http = require('http')
 
-console.log('connected to database', mongoose.createConnection( 'mongodb://localhost:27017/mallee_books' ))
+// mongoose.createConnection( 'mongodb://localhost:27017/mallee_books' )
 
- * Get port from environment and store in Express.
+ /* Get port from environment and store in Express.
  */
 
 let port = normalizePort(process.env.PORT || '3000')
